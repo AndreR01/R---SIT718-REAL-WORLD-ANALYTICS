@@ -1,0 +1,112 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:128.0) Gecko/20100101 Firefox/128.0" version="24.7.6">
+  <diagram name="Page-1" id="468VNcWB7cRSxq43qb6z">
+    <mxGraphModel dx="1687" dy="878" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="-MhMObakDgeT6DEz-hgZ-1" value="" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="110" y="110" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="-MhMObakDgeT6DEz-hgZ-2" value="Aggregation Funcrtion" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="140" y="135" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="-MhMObakDgeT6DEz-hgZ-3" value="" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="110" y="330" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="-MhMObakDgeT6DEz-hgZ-4" value="Data Distribution" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="140" y="355" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="-MhMObakDgeT6DEz-hgZ-5" value="" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="110" y="600" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="-MhMObakDgeT6DEz-hgZ-6" value="Data Transformation" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="140" y="625" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="-MhMObakDgeT6DEz-hgZ-8" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="300" y="20" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="-MhMObakDgeT6DEz-hgZ-9" value="Arithmetic Mean" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="325" y="30" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="-MhMObakDgeT6DEz-hgZ-10" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="300" y="85" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="-MhMObakDgeT6DEz-hgZ-11" value="Median &amp;amp; Mode" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="325" y="95" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="-MhMObakDgeT6DEz-hgZ-12" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="470" y="85" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="-MhMObakDgeT6DEz-hgZ-13" value="Harmonic Mean" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="495" y="95" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="-MhMObakDgeT6DEz-hgZ-14" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="470" y="20" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="-MhMObakDgeT6DEz-hgZ-15" value="Geometric Mean" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="495" y="30" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="-MhMObakDgeT6DEz-hgZ-17" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="470" y="150" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="-MhMObakDgeT6DEz-hgZ-18" value="Power Mean" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="325" y="160" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="-MhMObakDgeT6DEz-hgZ-22" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="300" y="150" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="-MhMObakDgeT6DEz-hgZ-23" value="&lt;div&gt;Properties of Aggregation&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="495" y="160" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="-MhMObakDgeT6DEz-hgZ-26" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="300" y="305" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="-MhMObakDgeT6DEz-hgZ-27" value="Probability Distribution" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" vertex="1" parent="1">
+          <mxGeometry x="325" y="314" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="-MhMObakDgeT6DEz-hgZ-31" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="300" y="370" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="-MhMObakDgeT6DEz-hgZ-32" value="Standard Deviation" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" vertex="1" parent="1">
+          <mxGeometry x="325" y="379" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="-MhMObakDgeT6DEz-hgZ-33" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="470" y="305" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="-MhMObakDgeT6DEz-hgZ-34" value="Uniform Distribution" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" vertex="1" parent="1">
+          <mxGeometry x="495" y="314" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="-MhMObakDgeT6DEz-hgZ-35" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="470" y="370" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="-MhMObakDgeT6DEz-hgZ-36" value="Normal Distribution" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" vertex="1" parent="1">
+          <mxGeometry x="495" y="379" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="-MhMObakDgeT6DEz-hgZ-37" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="300" y="540" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="-MhMObakDgeT6DEz-hgZ-38" value="Negation &amp;amp; Utility Transformation" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" vertex="1" parent="1">
+          <mxGeometry x="325" y="549" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="-MhMObakDgeT6DEz-hgZ-41" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="475" y="540" width="115" height="52.5" as="geometry" />
+        </mxCell>
+        <mxCell id="-MhMObakDgeT6DEz-hgZ-42" value="&lt;div&gt;&amp;nbsp;Standarisation, Scaling &amp;amp; &lt;br&gt;&lt;/div&gt;&lt;div&gt;Normalisation&lt;br&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" vertex="1" parent="1">
+          <mxGeometry x="502.5" y="551.25" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="-MhMObakDgeT6DEz-hgZ-43" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="290" y="650" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="-MhMObakDgeT6DEz-hgZ-44" value="Log &amp;amp; Polynomial Transformation" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" vertex="1" parent="1">
+          <mxGeometry x="315" y="659" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="-MhMObakDgeT6DEz-hgZ-47" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="475" y="639" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="-MhMObakDgeT6DEz-hgZ-48" value="Piecewise Linear Transformation" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="648" width="60" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
