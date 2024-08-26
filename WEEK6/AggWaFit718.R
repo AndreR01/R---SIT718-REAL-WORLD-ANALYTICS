@@ -32,8 +32,6 @@ QM <- function(x) {x^2}
 invQM <- function(x) {sqrt(x)}
 PM05 <- function(x) {x^0.5}
 invPM05 <-function(x) {x^(1/0.5)}
-PM2 <- function(x) {x^2}
-invPM2 <-function(x) {x^(1/2)}
 HM <- function(x) {x^(-1)}
 invHM <- function(x) {x^(-1)}
 
@@ -51,7 +49,7 @@ PM <- function(x,w =array(1/length(x),length(x)),p) {    # 1. pre-defining the f
 
 #------ Weighted Quasi-Arithmetic Means ------#
 
-QAM <- function(x,w=array(1/length(x),length(x)),g=PM05,g.inv=invPM05) { # 1. pre-defining the inputs 
+QAM <- function(x,w=array(1/length(x),length(x)),g=AM,g.inv=invAM) { # 1. pre-defining the inputs 
   #    (with equal weights and g ~arithmetic mean default)
   n=length(x)														# 2. store the length of x
   for(i in 1:n) x[i] <- g(x[i])									# 3. transform each of the inputs 
