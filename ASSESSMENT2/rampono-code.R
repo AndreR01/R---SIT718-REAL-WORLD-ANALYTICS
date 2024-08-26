@@ -30,13 +30,22 @@ quality <-c(wines[,6])
 wines.header <- c("citric acid", "chlorides", "total sulfur dioxide", "pH", "alcohol", "quality")
 colnames(wines) <- c("citric acid", "chlorides", "total sulfur dioxide", "pH", "alcohol", "quality")
 
-#SCATTTERPLOTS
-# Create 5 scatterplots function (for each X variable against the variable of interest Y) 
-plot(citric, quality, main="Scatter plot of Citric Acid (g/L) v Quatlity", xlab="Citric Acid (g/L)",ylab="Quality")
-plot(chlorides,quality,main="Scatter plot of Chlorides (g/L) v Quatlity", xlab="Chlorides (g/L)",ylab="Quality")
-plot(sulfur_dioxide,quality,main="Scatter plot of Total Sulfur Dioxide (mg/L) v Quatlity", xlab="Total Sulfur Dioxide (mg/L)",ylab="Quality")
-plot(hydrogen,quality,main="Scatter plot of pH v Quatlity", xlab="pH",ylab="Quality")
-plot(alcohol,quality,main="Scatter plot of Alcohol (%) v Quatlity", xlab="Alcohol %",ylab="Quality")
+#SCATTTERPLOTS & HISTOGRAMS
+# Create 5 scatterplots function (for each X variable against the variable of interest Y)
+# Create 6 histograms for each X variable and Y
+par(mfrow=c(1,2))
+hist(citric, xlab="Citric Acid (g/L)", ylab="Count", main="Citric Acid (grams/Litre)",col="#619CFF")
+plot(citric, quality, main="Citric Acid (g/L) v Quatlity", xlab="Citric Acid (g/L)",ylab="Quality")
+plot(chlorides,quality,main="Chlorides (g/L) v Quatlity", xlab="Chlorides (g/L)",ylab="Quality")
+hist(chlorides, xlab="Chlorides (g/L)", ylab="Count", main="Chlorides (grams(sodium chloride)/Litre)",col="#619CFF")
+plot(sulfur_dioxide,quality,main="Total Sulfur Dioxide (mg/L) v Quatlity", xlab="Total Sulfur Dioxide (mg/L)",ylab="Quality")
+hist(sulfur_dioxide, xlab="Total Sulfur Dioxide (mg/L)", ylab="Count", main="Total Sulfur Dioxide (milligrams/Litre)",col="#619CFF")
+plot(hydrogen,quality,main="pH v Quatlity", xlab="pH",ylab="Quality")
+hist(hydrogen, xlab="pH", ylab="Count", main="pH",col="#619CFF")
+plot(alcohol,quality,main="Alcohol (%) v Quatlity", xlab="Alcohol %",ylab="Quality")
+hist(alcohol, xlab="Alcohol (%)", ylab="Count", main="Alcohol (%)",col="#619CFF")
+
+hist(quality, xlab="Quality", ylab="Count", main="Quatlity",col="#619CFF")
 
 
 #CORRELATIONS
@@ -46,17 +55,7 @@ cor(chlorides,quality)
 cor(sulfur_dioxide,quality)
 cor(hydrogen,quality)
 cor(alcohol,quality)
-
-
-#HISTOGRAMS
-# Create 6 histograms for each X variable and Y
-hist(citric, xlab="Citric Acid (g/L)", ylab="Count", main="Citric Acid (grams/Litre)")
-hist(chlorides, xlab="Chlorides (g/L)", ylab="Count", main="Chlorides (grams(sodium chloride)/Litre)")
-hist(sulfur_dioxide, xlab="Total Sulfur Dioxide (mg/L)", ylab="Count", main="Total Sulfur Dioxide (milligrams/Litre)")
-hist(hydrogen, xlab="pH", ylab="Count", main="pH")
-hist(alcohol, xlab="Alcohol (%)", ylab="Count", main="Alcohol (%)")
-hist(quality, xlab="Quality", ylab="Count", main="Quatlity")
-
+cor(quality,quality)
 
 ################################
 #Question 2 - Transform the Data
@@ -110,7 +109,7 @@ minmax <- function(x){
 s_citric <-c(wines.sample[,1])
 s_chlorides <-c(wines.sample[,2])
 s_sulfur_dioxide <-c(wines.sample[,3])
-#s_hydrogen <-c(wines.sample[,3])
+s_hydrogen <-c(wines.sample[,3])
 s_alcohol <-c(wines.sample[,4])
 s_quality <-c(wines.sample[,5])
 
@@ -128,18 +127,21 @@ s_quality <-c(wines.sample[,5])
 s_citric_mean <-mean(s_citric)
 s_chlorides_mean <-mean(s_chlorides)
 s_sulfur_dioxide_mean <-mean(s_sulfur_dioxide)
+s_hydrogen_mean <-mean(s_hydrogen)
 s_alcohol_mean <-mean(s_alcohol)
 s_quality_mean <-mean(s_quality)
 
 s_citric_median <-median(s_citric)
 s_chlorides_median <-median(s_chlorides)
 s_sulfur_dioxide_median <-median(s_sulfur_dioxide)
+s_hygrogen_median <-median(s_hydrogen)
 s_alcohol_median <-median(s_alcohol)
 s_quality_median <-median(s_quality)
 
 s_citric_sd <-sd(s_citric)
 s_chlorides_sd <-sd(s_chlorides)
 s_sulfur_dioxide_sd <-sd(s_sulfur_dioxide)
+s_hydrogen_sd <-sd(s_hydrogen)
 s_alcohol_sd <-sd(s_alcohol)
 s_quality_sd <-sd(s_quality)
 
@@ -156,6 +158,11 @@ s_sulfur_dioxide_mean
 s_sulfur_dioxide_median
 s_sulfur_dioxide_sd
 
+s_hydrogen_mean
+s_hygrogen_median
+s_hydrogen_sd
+
+
 s_alcohol_mean
 s_alcohol_median
 s_alcohol_sd
@@ -168,7 +175,7 @@ s_quality_sd
 ks.test(s_citric,"pnorm",mean=s_citric_mean,sd=s_citric_sd)
 ks.test(s_chlorides, "pnorm", mean=s_chlorides_mean,sd=s_chlorides_sd)
 ks.test(s_sulfur_dioxide,"pnorm", mean=s_sulfur_dioxide_mean,sd=s_sulfur_dioxide_sd)
-#ks.test(s_hydrogen,"pnorm", mean=s_hydrogen.mean,sd=s_hydrogen.sd)
+ks.test(s_hydrogen,"pnorm", mean=s_hydrogen_mean,sd=s_hydrogen_sd)
 ks.test(s_alcohol,"pnorm",mean=s_alcohol_mean,sd=s_alcohol_sd)
 ks.test(s_quality,"pnorm",mean=s_quality_mean,sd=s_quality_sd)
 
