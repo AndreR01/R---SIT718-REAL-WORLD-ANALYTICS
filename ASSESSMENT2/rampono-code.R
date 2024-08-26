@@ -115,6 +115,9 @@ quality.median
 wines.sample <-wines[,c(1,2,3,5,6)]
 wines.sample #TODO DELETE
 
+ph_test.sample <-wines[,c(1,2,3,4,5,6)] #TODO DELETE
+ph_test.sample #TODO DELETE
+
 #FUNCTIONS
 #Scaling using minimum-maximum
 minmax <- function(x){
@@ -128,35 +131,25 @@ s_sulfur_dioxide <-c(wines.sample[,3])
 s_alcohol <-c(wines.sample[,4])
 s_quality <-c(wines.sample[,5])
 
-#CORRELATION
-#Pearson Correlation Coefficient between sample of independent variables and quality 
-#cor(s_citric,s_quality)
-#cor(s_chlorides,s_quality)
-#cor(s_sulfur_dioxide,s_quality)
-#cor(s_alcohol,s_quality)
-
-
-
-
 #MEAN, MEDIANS & STD DEVIATION FOR SAMPLE VARIABLES
 s_citric_mean <-mean(s_citric)
 s_chlorides_mean <-mean(s_chlorides)
 s_sulfur_dioxide_mean <-mean(s_sulfur_dioxide)
-s_hydrogen_mean <-mean(s_hydrogen)
+hydrogen_mean <-mean(hydrogen)
 s_alcohol_mean <-mean(s_alcohol)
 s_quality_mean <-mean(s_quality)
 
 s_citric_median <-median(s_citric)
 s_chlorides_median <-median(s_chlorides)
 s_sulfur_dioxide_median <-median(s_sulfur_dioxide)
-s_hygrogen_median <-median(s_hydrogen)
+hygrogen_median <-median(hydrogen)
 s_alcohol_median <-median(s_alcohol)
 s_quality_median <-median(s_quality)
 
 s_citric_sd <-sd(s_citric)
 s_chlorides_sd <-sd(s_chlorides)
 s_sulfur_dioxide_sd <-sd(s_sulfur_dioxide)
-s_hydrogen_sd <-sd(s_hydrogen)
+hydrogen_sd <-sd(hydrogen)
 s_alcohol_sd <-sd(s_alcohol)
 s_quality_sd <-sd(s_quality)
 
@@ -173,9 +166,9 @@ s_sulfur_dioxide_mean
 s_sulfur_dioxide_median
 s_sulfur_dioxide_sd
 
-s_hydrogen_mean
-s_hygrogen_median
-s_hydrogen_sd
+hydrogen_mean
+hygrogen_median
+hydrogen_sd
 
 
 s_alcohol_mean
@@ -190,7 +183,7 @@ s_quality_sd
 ks.test(s_citric,"pnorm",mean=s_citric_mean,sd=s_citric_sd)
 ks.test(s_chlorides, "pnorm", mean=s_chlorides_mean,sd=s_chlorides_sd)
 ks.test(s_sulfur_dioxide,"pnorm", mean=s_sulfur_dioxide_mean,sd=s_sulfur_dioxide_sd)
-ks.test(s_hydrogen,"pnorm", mean=s_hydrogen_mean,sd=s_hydrogen_sd)
+ks.test(hydrogen,"pnorm", mean=hydrogen_mean,sd=hydrogen_sd)
 ks.test(s_alcohol,"pnorm",mean=s_alcohol_mean,sd=s_alcohol_sd)
 ks.test(s_quality,"pnorm",mean=s_quality_mean,sd=s_quality_sd)
 
@@ -211,22 +204,17 @@ min_sqrt_sulfur_dioxide <-min(sqrt(s_sulfur_dioxide))
 max_sqrt_sulfur_dioxide <-max(sqrt(s_sulfur_dioxide))
 sqrt_sulfur_dioxide <- (1-((sqrt(s_sulfur_dioxide)-min_sqrt_sulfur_dioxide)/(max_sqrt_sulfur_dioxide-min_sqrt_sulfur_dioxide)))
 
-#ALCOHOL - normalise alcohol with log transformation and standardise min/max
+#ALCOHOL - log transformation and scaling using min/max
 log_s_alcohol <-log(s_alcohol,10)
 min_max_log_s_alcohol <-minmax(log_s_alcohol)
 
-#QUALITY - linear scaling using minmax
-min_max_quality <-minmax(s_quality)
-min(min_max_quality)
-max(min_max_quality)
-
+#QUALITY - log transformation and scaling using min/max
 log_s_quality <-log(s_quality,10)
-log_s_quality #TODO DELETE
-
 min_max_log_s_quality <-minmax(log_s_quality)
-hist(min_max_log_s_quality)
-s_quality
-min_max_log_s_quality
+
+#HYDROGEN THEORY
+min_max_hydrogen <-minmax(hydrogen) #TODO DELETE
+min_max_hydrogen #TODO DELETE
 
 #Assign transform variables to table
 wines.sample[,1] <-c(sqrt_citric)
@@ -234,13 +222,31 @@ wines.sample[,2] <-c(log_chlorides)
 wines.sample[,3] <-c(sqrt_sulfur_dioxide)
 wines.sample[,4] <-c(min_max_log_s_alcohol)
 wines.sample[,5] <-c(min_max_log_s_quality)
+wines.sample[,6] <-c(min_max_hydrogen) #TODO DELETE)
 wines.sample #TODO DELETE
+
+#TODO DELETE)
+ph_test.sample[,1] <-c(sqrt_citric)
+ph_test.sample[,2] <-c(log_chlorides)
+ph_test.sample[,3] <-c(sqrt_sulfur_dioxide)
+ph_test.sample[,4] <-c(min_max_hydrogen) #TODO DELETE)
+ph_test.sample[,5] <-c(min_max_log_s_alcohol)
+ph_test.sample[,6] <-c(min_max_log_s_quality)
+
+ph_test.sample #TODO DELETE
+
+
+
+
 
 #EXPORT DATA
 # Save this transformed data to a text file
 write.table(wines.sample, "rampono_transformed.txt")  # replace ??name?? with either your surname or first name.
 
-#TODO Do corrleation and Minkowski measures before or after tr
+#TODO DELETE
+write.table(ph_test.sample, "rampono_transformed.txt")  # replace ??name?? with either your surname or first name.
+
+
 ##########################################
 #Question 3 - Build models and investigate
 ##########################################
@@ -263,6 +269,12 @@ fit.QAM(rampono_transformed_copy[,c(1:4,5)],output.1="outputPM2.txt",stats.1="st
 fit.OWA(rampono_transformed_copy[,c(1:4,5)],output.1="outputOWA.txt",stats.1="statsOWA.txt")
 
 
+#TODO DELETE
+fit.QAM(rampono_transformed_copy[,c(1:5,6)]) #Generates output files with weights and errors
+fit.QAM(rampono_transformed_copy[,c(1:5,6)],output.1="outputPM05.txt",stats.1="statsPM05.txt",g=PM05,g.inv=invPM05)
+fit.QAM(rampono_transformed_copy[,c(1:5,6)],output.1="outputPM2.txt",stats.1="statsPM2.txt",g=PM2,g.inv=invPM2)
+fit.OWA(rampono_transformed_copy[,c(1:5,6)],output.1="outputOWA.txt",stats.1="statsOWA.txt")
+
 
 #######################################
 #Question 4 - Use Model for Prediction
@@ -271,54 +283,39 @@ fit.OWA(rampono_transformed_copy[,c(1:4,5)],output.1="outputOWA.txt",stats.1="st
 new_input <- c(0.9, 0.65, 38, 2.53, 7.1) 
 
 X1 <- new_input[c(1)] # choose the same four X variables as in Q2 
-X1
 X2 <-new_input[c(2)]
-X2
 X3 <-new_input[c(3)]
-X3
 X5 <-new_input[c(5)]
-X5
+
 
 
 
 # transforming the four variables in the same way as in question 2 
 #CITRIC
 new_X1 <-(sqrt(X1)-min_sqrt_citric)/(max_sqrt_citric-min_sqrt_citric)
-new_X1 #TODO DELETE
-
 
 #CHLORIDES
-new_X2 <- (1-((log(X2)-min_log)/(max_log-min_log)))
-new_X2 #TODO DELETE
+new_X2 <- (1-((log(X2,10)-min_log)/(max_log-min_log)))
 
 #TOTAL SULFUR DIOXIDE
 new_X3 <- (1-((sqrt(X3)-min_sqrt_sulfur_dioxide)/(max_sqrt_sulfur_dioxide-min_sqrt_sulfur_dioxide)))
-new_X3 #TODO DELETE
 
 #ALCOHOL
-new_X5 <- ((log(X5)-min(log_s_alcohol))/(max(log_s_alcohol)-min(log_s_alcohol)))
-new_X5 #TODO DELETE
+new_X5 <- ((log(X5,10)-min(log_s_alcohol))/(max(log_s_alcohol)-min(log_s_alcohol)))
 
 # applying the transformed variables to the best model selected from Q3 for Y prediction
 
 
-
 # Reverse the transformation to convert back the predicted Y to the original scale and then round it to integer
 #REVERSE THE SCORES PROCESS TO CALCULTE THE QUALITY
-q_score <-(0.8638587)
-new_wine_quality <-(q_score*(max(s_quality)-min(s_quality)))+(min(s_quality))
-round_new_wine_quality <-round(new_wine_quality,digits = 0)
-round_new_wine_quality #TODO DELETE
-
-
-
-
-log_q_score <-log(q_score)
-
-q_wine
+q_score <-(0.20642723)
+#new_wine_quality <-(q_score*(max(s_quality)-min(s_quality)))+(min(s_quality))
 new_wine <-q_score*(max(log(s_quality,10))-min(log(s_quality,10)))+min(log(s_quality,10))
 new_wine #TODO DELETE
 q_wine<-(10^new_wine)
+q_wine
+round_q_wine <-round(q_wine,digits = 0)
+round_q_wine #TODO DELETE
 
 
 
@@ -334,51 +331,6 @@ q_wine<-(10^new_wine)
 #
 
 
-
-#ggplot(wines, aes(x = alcohol, y = quality)) + geom_point()
-
-#Transfrom citric acid by z-score standardisation and scaling to unit interval
-#unit.z <- function(x){
-#  0.15*((x-mean(x))/sd(x)) + 0.5
-#}
-#citric.z <-unit.z(s_citric)
-#s_citric
-#citric.z
-#plot(citric.z, s_quality)
-#plot(s_citric, s_quality)
-
-#hist(citric.z)
-#hist(s_citric)
-#s_citric_m <-mean(s_citric)
-#s_citric_sd <-sd(s_citric)
-#ks.test(s_citric,"pnorm",mean=s_citric_m, sd=s_citric_sd)
-
-#citric.z_m <-mean(citric.z)
-#citric.z_sd <-sd(citric.z)
-#ks.test(citric.z,"pnorm",mean=citric.z_m, sd=citric.z_sd)
-
-#qqnorm(s_citric, main='Non-normal')
-#qqline(s_citric)
-
-#qqnorm(citric.z, main='Non-normal')
-#qqline(citric.z)
-
-#unit.z <- function(x){
-#  0.15*((x-mean(x))/sd(x)) + 0.5
-#}
-
-#Use square root transformation for alcohol as not as skewed as chlorides
-#min_sqrt_hydrogen <-sqrt(min(wines.sample[,4]))
-#max_sqrt_hydrogen <-sqrt(max(wines.sample[,4]))
-#sqrt_hydrogen <- (1-((sqrt(wines.sample[,4])-min_sqrt_hydrogen)/(max_sqrt_hydrogen-min_sqrt_hydrogen)))
-#sqrt_hydrogen
-#plot(sqrt_hydrogen,s_quality,main="Scatter plot of pH v Quatlity", xlab="pH",ylab="Quality")
-#hist(sqrt_hydrogen, xlab="Alcohol %", ylab="Frequency (wine samples)", main="Alcohol (volume as a %")
-#sqrt_hydrogen.mean <-mean(sqrt_hydrogen)
-#sqrt_hydrogen.mean
-#sqrt_hydrogen.sd <-sqrt(sum((sqrt_hydrogen.mean)^2)/(length(sqrt_hydrogen)-1))
-#sqrt_alcohol.sd
-#ks.test(sqrt_hydrogen,"pnorm",mean=sqrt_hydrogen.mean,sd=sqrt_alcohol.sd)
 
 
 

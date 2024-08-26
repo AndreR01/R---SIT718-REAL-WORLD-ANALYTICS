@@ -51,7 +51,7 @@ PM <- function(x,w =array(1/length(x),length(x)),p) {    # 1. pre-defining the f
 
 #------ Weighted Quasi-Arithmetic Means ------#
 
-QAM <- function(x,w=array(1/length(x),length(x)),g=PM05,g.inv=invPM05) { # 1. pre-defining the inputs 
+QAM <- function(x,w=array(1/length(x),length(x)),g=PM2,g.inv=invPM2) { # 1. pre-defining the inputs 
   #    (with equal weights and g ~arithmetic mean default)
   n=length(x)														# 2. store the length of x
   for(i in 1:n) x[i] <- g(x[i])									# 3. transform each of the inputs 
@@ -133,7 +133,7 @@ f.plot3d <- function(f,x.dom = c(0,1), y.dom = c(0,1),grid = c(25,25)) {
 #     fit.OWA(A,"output.file.txt","output.stats.txt"). 
 
 
-fit.QAM <- function(the.data,output.1="output1.txt",stats.1="stats1.txt",g=AM,g.inv=invAM) {
+fit.QAM <- function(the.data,output.1="output05.txt",stats.1="stats05.txt",g=PM05,g.inv=invPM05) {
   # preliminary information
   ycol <- ncol(the.data)
   n <- ycol-1
