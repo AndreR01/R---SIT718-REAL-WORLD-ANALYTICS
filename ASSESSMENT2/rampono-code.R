@@ -18,7 +18,7 @@ data.raw <- as.matrix(read.table("RedWine.txt"))
 set.seed(244906702) # using your student ID number for reproducible sampling with the seed function
 
 wines <- data.raw[sample(1:1599, 500), c(1:6)]
-
+wines #TODO DELETE
 #Assign variables to names
 citric <-c(wines[,1])
 chlorides <-c(wines[,2])
@@ -34,16 +34,22 @@ colnames(wines) <- c("citric acid", "chlorides", "total sulfur dioxide", "pH", "
 # Create 5 scatterplots function (for each X variable against the variable of interest Y)
 # Create 6 histograms for each X variable and Y
 par(mfrow=c(1,2))
+hist(chlorides, xlab="Chlorides (g/L)", ylab="Count", main="Chlorides (grams(sodium chloride)/Litre)",col="#619CFF")
+plot(chlorides,quality,main="Chlorides (g/L) v Quatlity", xlab="Chlorides (g/L)",ylab="Quality")
+
+hist(sulfur_dioxide, xlab="Total Sulfur Dioxide (mg/L)", ylab="Count", main="Total Sulfur Dioxide (milligrams/Litre)",col="#619CFF")
+plot(sulfur_dioxide,quality,main="Total Sulfur Dioxide (mg/L) v Quatlity", xlab="Total Sulfur Dioxide (mg/L)",ylab="Quality")
+
+hist(alcohol, xlab="Alcohol (%)", ylab="Count", main="Alcohol (%)",col="#619CFF")
+plot(alcohol,quality,main="Alcohol (%) v Quatlity", xlab="Alcohol %",ylab="Quality")
+
 hist(citric, xlab="Citric Acid (g/L)", ylab="Count", main="Citric Acid (grams/Litre)",col="#619CFF")
 plot(citric, quality, main="Citric Acid (g/L) v Quatlity", xlab="Citric Acid (g/L)",ylab="Quality")
-plot(chlorides,quality,main="Chlorides (g/L) v Quatlity", xlab="Chlorides (g/L)",ylab="Quality")
-hist(chlorides, xlab="Chlorides (g/L)", ylab="Count", main="Chlorides (grams(sodium chloride)/Litre)",col="#619CFF")
-plot(sulfur_dioxide,quality,main="Total Sulfur Dioxide (mg/L) v Quatlity", xlab="Total Sulfur Dioxide (mg/L)",ylab="Quality")
-hist(sulfur_dioxide, xlab="Total Sulfur Dioxide (mg/L)", ylab="Count", main="Total Sulfur Dioxide (milligrams/Litre)",col="#619CFF")
-plot(hydrogen,quality,main="pH v Quatlity", xlab="pH",ylab="Quality")
+
 hist(hydrogen, xlab="pH", ylab="Count", main="pH",col="#619CFF")
-plot(alcohol,quality,main="Alcohol (%) v Quatlity", xlab="Alcohol %",ylab="Quality")
-hist(alcohol, xlab="Alcohol (%)", ylab="Count", main="Alcohol (%)",col="#619CFF")
+plot(hydrogen,quality,main="pH v Quatlity", xlab="pH",ylab="Quality")
+
+
 
 hist(quality, xlab="Quality", ylab="Count", main="Quatlity",col="#619CFF")
 
@@ -97,7 +103,7 @@ quality.median <-median(quality)
 quality.median
 
 wines.sample <-wines[,c(1,2,3,5,6)]
-wines.sample
+wines.sample #TODO DELETE
 
 #FUNCTIONS
 #Scaling using minimum-maximum
@@ -187,9 +193,9 @@ max_sqrt_citric <-max(sqrt(s_citric))
 sqrt_citric <-((sqrt(s_citric)-min_sqrt_citric)/(max_sqrt_citric-min_sqrt_citric))
 
 #CHLORIDES - use log transformation for chlorides due to strong positive skew
-min_log <-min(log(s_chlorides))
-max_log <-max(log(s_chlorides))
-log_chlorides <- (1-((log(s_chlorides)-min_log)/(max_log-min_log)))
+min_log <-min(log(s_chlorides,10))
+max_log <-max(log(s_chlorides,10))
+log_chlorides <- (1-((log(s_chlorides,10)-min_log)/(max_log-min_log)))
 
 #TOTAL SULFUR DIOXIDE - use square root transformation for sulfur dioxide as not as skewed as chlorides
 min_sqrt_sulfur_dioxide <-min(sqrt(s_sulfur_dioxide))
@@ -197,7 +203,7 @@ max_sqrt_sulfur_dioxide <-max(sqrt(s_sulfur_dioxide))
 sqrt_sulfur_dioxide <- (1-((sqrt(s_sulfur_dioxide)-min_sqrt_sulfur_dioxide)/(max_sqrt_sulfur_dioxide-min_sqrt_sulfur_dioxide)))
 
 #ALCOHOL - normalise alcohol with log transformation and standardise min/max
-log_s_alcohol <-log(s_alcohol)
+log_s_alcohol <-log(s_alcohol,10)
 min_max_log_s_alcohol <-minmax(log_s_alcohol)
 
 #QUALITY - linear scaling using minmax
@@ -205,13 +211,21 @@ min_max_quality <-minmax(s_quality)
 min(min_max_quality)
 max(min_max_quality)
 
+log_s_quality <-log(s_quality,10)
+log_s_quality #TODO DELETE
+
+min_max_log_s_quality <-minmax(log_s_quality)
+hist(min_max_log_s_quality)
+s_quality
+min_max_log_s_quality
+
 #Assign transform variables to table
 wines.sample[,1] <-c(sqrt_citric)
 wines.sample[,2] <-c(log_chlorides)
 wines.sample[,3] <-c(sqrt_sulfur_dioxide)
 wines.sample[,4] <-c(min_max_log_s_alcohol)
-wines.sample[,5] <-c(min_max_quality)
-wines.sample
+wines.sample[,5] <-c(min_max_log_s_quality)
+wines.sample #TODO DELETE
 
 #EXPORT DATA
 # Save this transformed data to a text file
@@ -261,20 +275,20 @@ X5
 # transforming the four variables in the same way as in question 2 
 #CITRIC
 new_X1 <-(sqrt(X1)-min_sqrt_citric)/(max_sqrt_citric-min_sqrt_citric)
-new_X1
+new_X1 #TODO DELETE
 
 
 #CHLORIDES
 new_X2 <- (1-((log(X2)-min_log)/(max_log-min_log)))
-new_X2
+new_X2 #TODO DELETE
 
 #TOTAL SULFUR DIOXIDE
 new_X3 <- (1-((sqrt(X3)-min_sqrt_sulfur_dioxide)/(max_sqrt_sulfur_dioxide-min_sqrt_sulfur_dioxide)))
-new_X3
+new_X3 #TODO DELETE
 
 #ALCOHOL
 new_X5 <- ((log(X5)-min(log_s_alcohol))/(max(log_s_alcohol)-min(log_s_alcohol)))
-new_X5
+new_X5 #TODO DELETE
 
 # applying the transformed variables to the best model selected from Q3 for Y prediction
 
@@ -282,10 +296,23 @@ new_X5
 
 # Reverse the transformation to convert back the predicted Y to the original scale and then round it to integer
 #REVERSE THE SCORES PROCESS TO CALCULTE THE QUALITY
-q_score <-0.088937922
+q_score <-(0.8638587)
 new_wine_quality <-(q_score*(max(s_quality)-min(s_quality)))+(min(s_quality))
 round_new_wine_quality <-round(new_wine_quality,digits = 0)
-round_new_wine_quality
+round_new_wine_quality #TODO DELETE
+
+
+
+
+log_q_score <-log(q_score)
+
+q_wine
+new_wine <-q_score*(max(log(s_quality,10))-min(log(s_quality,10)))+min(log(s_quality,10))
+new_wine #TODO DELETE
+q_wine<-(10^new_wine)
+
+
+
 
 #############################################################################################
 # References 
