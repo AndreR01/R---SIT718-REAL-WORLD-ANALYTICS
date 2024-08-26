@@ -36,7 +36,8 @@ plot(citric, quality, main="Scatter plot of Citric Acid (g/L) v Quatlity", xlab=
 plot(chlorides,quality,main="Scatter plot of Chlorides (g/L) v Quatlity", xlab="Chlorides (g/L)",ylab="Quality")
 plot(sulfur_dioxide,quality,main="Scatter plot of Total Sulfur Dioxide (mg/L) v Quatlity", xlab="Total Sulfur Dioxide (mg/L)",ylab="Quality")
 plot(hydrogen,quality,main="Scatter plot of pH v Quatlity", xlab="pH",ylab="Quality")
-plot(alcohol,quality,main="Scatter plot of Alcohol % v Quatlity", xlab="Alcohol %",ylab="Quality")
+plot(alcohol,quality,main="Scatter plot of Alcohol (%) v Quatlity", xlab="Alcohol %",ylab="Quality")
+
 
 #CORRELATIONS
 #Pearson Correlation Coefficient between independent variables and quality 
@@ -49,12 +50,12 @@ cor(alcohol,quality)
 
 #HISTOGRAMS
 # Create 6 histograms for each X variable and Y
-hist(citric, xlab="Citric Acid (g/L)", ylab="Frequency (wine samples)", main="Citric Acid (grams/Litre)")
-hist(chlorides, xlab="Chlorides (g/L)", ylab="Frequency (wine samples)", main="Chlorides (grams(sodium chloride)/Litre)")
-hist(sulfur_dioxide, xlab="Total Sulfur Dioxide (mg/L)", ylab="Frequency (wine samples)", main="Total Sulfur Dioxide (milligrams/Litre)")
-hist(hydrogen, xlab="pH", ylab="Frequency (wine samples)", main="pH")
-hist(alcohol, xlab="Alcohol %", ylab="Frequency (wine samples)", main="Alcohol (volume as a %")
-hist(quality, xlab="Quality", ylab="Frequency (wine samples)", main="Quatlity")
+hist(citric, xlab="Citric Acid (g/L)", ylab="Count", main="Citric Acid (grams/Litre)")
+hist(chlorides, xlab="Chlorides (g/L)", ylab="Count", main="Chlorides (grams(sodium chloride)/Litre)")
+hist(sulfur_dioxide, xlab="Total Sulfur Dioxide (mg/L)", ylab="Count", main="Total Sulfur Dioxide (milligrams/Litre)")
+hist(hydrogen, xlab="pH", ylab="Count", main="pH")
+hist(alcohol, xlab="Alcohol (%)", ylab="Count", main="Alcohol (%)")
+hist(quality, xlab="Quality", ylab="Count", main="Quatlity")
 
 
 ################################
@@ -113,6 +114,8 @@ s_sulfur_dioxide <-c(wines.sample[,3])
 s_alcohol <-c(wines.sample[,4])
 s_quality <-c(wines.sample[,5])
 
+#CORRELATION
+#Pearson Correlation Coefficient between sample of independent variables and quality 
 #cor(s_citric,s_quality)
 #cor(s_chlorides,s_quality)
 #cor(s_sulfur_dioxide,s_quality)
@@ -121,7 +124,7 @@ s_quality <-c(wines.sample[,5])
 
 
 
-#mean and modes
+#MEAN, MEDIANS & STD DEVIATION FOR SAMPLE VARIABLES
 s_citric_mean <-mean(s_citric)
 s_chlorides_mean <-mean(s_chlorides)
 s_sulfur_dioxide_mean <-mean(s_sulfur_dioxide)
