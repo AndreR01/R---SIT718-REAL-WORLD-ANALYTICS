@@ -72,32 +72,42 @@ cor(quality,quality)
 #Calculate mean and standard deviation for each variable
 citric.mean <-mean(citric)
 citric.mean
-citric.sd <-sqrt(sum((citric-citric.mean)^2)/(length(citric)-1))
+citric.sd <-sd(citric)
 citric.sd
+citric.median <-median(citric)
+citric.median
 
 chlorides.mean <-mean(chlorides)
 chlorides.mean
-chlorides.sd <-sqrt(sum((chlorides-chlorides.mean)^2)/(length(chlorides)-1))
+chlorides.sd <-sd(chlorides)
 chlorides.sd
+chlorides.median <-median(chlorides)
+chlorides.median
 
 sulfur_dioxide.mean <-mean(sulfur_dioxide)
 sulfur_dioxide.mean
-sulfur_dioxide.sd <-sqrt(sum((sulfur_dioxide.mean)^2)/(length(sulfur_dioxide)-1))
+sulfur_dioxide.sd <-sd(sulfur_dioxide)
 sulfur_dioxide.sd
+sulfur_dioxide.median <-median(sulfur_dioxide)
+sulfur_dioxide.median
 
 hydrogen.mean <-mean(hydrogen)
 hydrogen.mean
-hydrogen.sd <-sqrt(sum((hydrogen.mean)^2)/(length(hydrogen)-1))
+hydrogen.sd <-sd(hydrogen)
 hydrogen.sd
+hydrogen.median <-median(hydrogen)
+hydrogen.median
 
 alcohol.mean <-mean(alcohol)
 alcohol.mean
-alcohol.sd <-sqrt(sum((alcohol.mean)^2)/(length(alcohol)-1))
+alcohol.sd <-sd(alcohol)
 alcohol.sd
+alcohol.median <-median(alcohol)
+alcohol.median
 
 quality.mean <-mean(quality)
 quality.mean
-quality.sd <-sqrt(sum((quality.mean)^2)/(length(quality)-1))
+quality.sd <-sd(quality)
 quality.sd
 quality.median <-median(quality)
 quality.median
@@ -115,7 +125,6 @@ minmax <- function(x){
 s_citric <-c(wines.sample[,1])
 s_chlorides <-c(wines.sample[,2])
 s_sulfur_dioxide <-c(wines.sample[,3])
-s_hydrogen <-c(wines.sample[,3])
 s_alcohol <-c(wines.sample[,4])
 s_quality <-c(wines.sample[,5])
 
