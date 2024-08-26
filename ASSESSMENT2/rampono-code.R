@@ -29,7 +29,6 @@ quality <-c(wines[,6])
 
 wines.header <- c("citric acid", "chlorides", "total sulfur dioxide", "pH", "alcohol", "quality")
 colnames(wines) <- c("citric acid", "chlorides", "total sulfur dioxide", "pH", "alcohol", "quality")
-#pairs(wines[, c(1, 3:6)], main="Scatter Plot Matrix for W Dataset")
 
 #SCATTTERPLOTS
 # Create 5 scatterplots function (for each X variable against the variable of interest Y) 
