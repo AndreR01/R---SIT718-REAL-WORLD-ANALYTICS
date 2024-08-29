@@ -1,12 +1,5 @@
-################################# 
-# You can use this template to draft the script for your Assessment 2 of SIT718.
-# More clarification and related resources can be found at
-# https://d2l.deakin.edu.au/d2l/le/content/1422222/viewContent/7266544/View
-#################################
+#Author: Andre Rampono
 
-#############################################################################################
-# save your code as "name-code.R" (where ''name'' is replaced with your surname or first name).
-#############################################################################################
 
 ##################################
 #Question 1 - Understand the Data
@@ -14,11 +7,9 @@
 install.packages("ggplot2")
 library(ggplot2)
 data.raw <- as.matrix(read.table("RedWine.txt"))
-
 set.seed(244906702) # using your student ID number for reproducible sampling with the seed function
-
 wines <- data.raw[sample(1:1599, 500), c(1:6)]
-wines #TODO DELETE
+
 #Assign variables to names
 citric <-c(wines[,1])
 chlorides <-c(wines[,2])
@@ -49,74 +40,49 @@ plot(citric, quality, main="Citric Acid (g/L) v Quatlity", xlab="Citric Acid (g/
 hist(hydrogen, xlab="pH", ylab="Count", main="pH",col="#619CFF")
 plot(hydrogen,quality,main="pH v Quatlity", xlab="pH",ylab="Quality")
 
-
-
+par(mfrow=c(1,1))
 hist(quality, xlab="Quality", ylab="Count", main="Quatlity",col="#619CFF")
 
 
 #CORRELATIONS
 #Pearson Correlation Coefficient between independent variables and quality 
-cor(citric,quality)
-cor(chlorides,quality)
-cor(sulfur_dioxide,quality)
-cor(hydrogen,quality)
-cor(alcohol,quality)
-cor(quality,quality)
+#cor(citric,quality)
+#@cor(chlorides,quality)
+#cor(sulfur_dioxide,quality)
+#cor(hydrogen,quality)
+#cor(alcohol,quality)
+#cor(quality,quality)
 
 ################################
 #Question 2 - Transform the Data
 ################################
-#Before fitting the models, the data was first standardized to a zero mean and one standard deviation
-
 #MEAN, MEDIANS & STD DEVIATION FOR VARIABLES
 #Calculate mean and standard deviation for each variable
 citric.mean <-mean(citric)
-citric.mean
 citric.sd <-sd(citric)
-citric.sd
 citric.median <-median(citric)
-citric.median
 
 chlorides.mean <-mean(chlorides)
-chlorides.mean
 chlorides.sd <-sd(chlorides)
-chlorides.sd
 chlorides.median <-median(chlorides)
-chlorides.median
 
 sulfur_dioxide.mean <-mean(sulfur_dioxide)
-sulfur_dioxide.mean
 sulfur_dioxide.sd <-sd(sulfur_dioxide)
-sulfur_dioxide.sd
 sulfur_dioxide.median <-median(sulfur_dioxide)
-sulfur_dioxide.median
 
 hydrogen.mean <-mean(hydrogen)
-hydrogen.mean
 hydrogen.sd <-sd(hydrogen)
-hydrogen.sd
 hydrogen.median <-median(hydrogen)
-hydrogen.median
 
 alcohol.mean <-mean(alcohol)
-alcohol.mean
 alcohol.sd <-sd(alcohol)
-alcohol.sd
 alcohol.median <-median(alcohol)
-alcohol.median
 
 quality.mean <-mean(quality)
-quality.mean
 quality.sd <-sd(quality)
-quality.sd
 quality.median <-median(quality)
-quality.median
 
 wines.sample <-wines[,c(1,2,3,5,6)]
-wines.sample #TODO DELETE
-
-ph_test.sample <-wines[,c(1,2,3,4,5,6)] #TODO DELETE
-ph_test.sample #TODO DELETE
 
 #FUNCTIONS
 #Scaling using minimum-maximum
@@ -153,39 +119,13 @@ hydrogen_sd <-sd(hydrogen)
 s_alcohol_sd <-sd(s_alcohol)
 s_quality_sd <-sd(s_quality)
 
-
-s_citric_mean
-s_citric_median
-s_citric_sd
-
-s_chlorides_mean
-s_chlorides_median
-s_chlorides_sd
-
-s_sulfur_dioxide_mean
-s_sulfur_dioxide_median
-s_sulfur_dioxide_sd
-
-hydrogen_mean
-hygrogen_median
-hydrogen_sd
-
-
-s_alcohol_mean
-s_alcohol_median
-s_alcohol_sd
-
-s_quality_mean
-s_quality_median
-s_quality_sd
-
 #KS test for all variables
-ks.test(s_citric,"pnorm",mean=s_citric_mean,sd=s_citric_sd)
-ks.test(s_chlorides, "pnorm", mean=s_chlorides_mean,sd=s_chlorides_sd)
-ks.test(s_sulfur_dioxide,"pnorm", mean=s_sulfur_dioxide_mean,sd=s_sulfur_dioxide_sd)
-ks.test(hydrogen,"pnorm", mean=hydrogen_mean,sd=hydrogen_sd)
-ks.test(s_alcohol,"pnorm",mean=s_alcohol_mean,sd=s_alcohol_sd)
-ks.test(s_quality,"pnorm",mean=s_quality_mean,sd=s_quality_sd)
+ks_citric <-ks.test(s_citric,"pnorm",mean=s_citric_mean,sd=s_citric_sd)
+ks_chlordes <-ks.test(s_chlorides, "pnorm", mean=s_chlorides_mean,sd=s_chlorides_sd)
+ks_sulfurd <-ks.test(s_sulfur_dioxide,"pnorm", mean=s_sulfur_dioxide_mean,sd=s_sulfur_dioxide_sd)
+ks_hydrogen <-ks.test(hydrogen,"pnorm", mean=hydrogen_mean,sd=hydrogen_sd)
+ks_alcohol <-ks.test(s_alcohol,"pnorm",mean=s_alcohol_mean,sd=s_alcohol_sd)
+ks_quality <-ks.test(s_quality,"pnorm",mean=s_quality_mean,sd=s_quality_sd)
 
 
 #TRANSFORMATION AND SCALING
@@ -212,9 +152,6 @@ min_max_log_s_alcohol <-minmax(log_s_alcohol)
 log_s_quality <-log(s_quality,10)
 min_max_log_s_quality <-minmax(log_s_quality)
 
-#HYDROGEN THEORY
-min_max_hydrogen <-minmax(hydrogen) #TODO DELETE
-min_max_hydrogen #TODO DELETE
 
 #Assign transform variables to table
 wines.sample[,1] <-c(sqrt_citric)
@@ -222,29 +159,10 @@ wines.sample[,2] <-c(log_chlorides)
 wines.sample[,3] <-c(sqrt_sulfur_dioxide)
 wines.sample[,4] <-c(min_max_log_s_alcohol)
 wines.sample[,5] <-c(min_max_log_s_quality)
-wines.sample[,6] <-c(min_max_hydrogen) #TODO DELETE)
-wines.sample #TODO DELETE
-
-#TODO DELETE)
-ph_test.sample[,1] <-c(sqrt_citric)
-ph_test.sample[,2] <-c(log_chlorides)
-ph_test.sample[,3] <-c(sqrt_sulfur_dioxide)
-ph_test.sample[,4] <-c(min_max_hydrogen) #TODO DELETE)
-ph_test.sample[,5] <-c(min_max_log_s_alcohol)
-ph_test.sample[,6] <-c(min_max_log_s_quality)
-
-ph_test.sample #TODO DELETE
-
-
-
-
 
 #EXPORT DATA
 # Save this transformed data to a text file
 write.table(wines.sample, "rampono_transformed.txt")  # replace ??name?? with either your surname or first name.
-
-#TODO DELETE
-write.table(ph_test.sample, "rampono_transformed.txt")  # replace ??name?? with either your surname or first name.
 
 
 ##########################################
@@ -268,14 +186,6 @@ fit.QAM(rampono_transformed_copy[,c(1:4,5)],output.1="outputPM2.txt",stats.1="st
 # Get weights for Ordered Weighted Average with fit.OWA()
 fit.OWA(rampono_transformed_copy[,c(1:4,5)],output.1="outputOWA.txt",stats.1="statsOWA.txt")
 
-
-#TODO DELETE
-fit.QAM(rampono_transformed_copy[,c(1:5,6)]) #Generates output files with weights and errors
-fit.QAM(rampono_transformed_copy[,c(1:5,6)],output.1="outputPM05.txt",stats.1="statsPM05.txt",g=PM05,g.inv=invPM05)
-fit.QAM(rampono_transformed_copy[,c(1:5,6)],output.1="outputPM2.txt",stats.1="statsPM2.txt",g=PM2,g.inv=invPM2)
-fit.OWA(rampono_transformed_copy[,c(1:5,6)],output.1="outputOWA.txt",stats.1="statsOWA.txt")
-
-
 #######################################
 #Question 4 - Use Model for Prediction
 #######################################
@@ -286,9 +196,6 @@ X1 <- new_input[c(1)] # choose the same four X variables as in Q2
 X2 <-new_input[c(2)]
 X3 <-new_input[c(3)]
 X5 <-new_input[c(5)]
-
-
-
 
 # transforming the four variables in the same way as in question 2 
 #CITRIC
@@ -309,14 +216,10 @@ new_X5 <- ((log(X5,10)-min(log_s_alcohol))/(max(log_s_alcohol)-min(log_s_alcohol
 # Reverse the transformation to convert back the predicted Y to the original scale and then round it to integer
 #REVERSE THE SCORES PROCESS TO CALCULTE THE QUALITY
 q_score <-(0.20642723)
-#new_wine_quality <-(q_score*(max(s_quality)-min(s_quality)))+(min(s_quality))
 new_wine <-q_score*(max(log(s_quality,10))-min(log(s_quality,10)))+min(log(s_quality,10))
-new_wine #TODO DELETE
 q_wine<-(10^new_wine)
-q_wine
 round_q_wine <-round(q_wine,digits = 0)
-round_q_wine #TODO DELETE
-
+round_q_wine
 
 
 
@@ -327,10 +230,3 @@ round_q_wine #TODO DELETE
 
 # You must cite all the datasets and packages you used for this assessment. 
 # P. Cortez, A. Cerdeira, F. Almeida, T. Matos and J. Reis. Modeling wine preferences by data mining from physicochemical properties. In Decision Support Systems, Elsevier, 47(4):547-553, 2009.
-
-#
-
-
-
-
-

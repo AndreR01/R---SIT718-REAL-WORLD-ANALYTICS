@@ -133,7 +133,7 @@ f.plot3d <- function(f,x.dom = c(0,1), y.dom = c(0,1),grid = c(25,25)) {
 #     fit.OWA(A,"output.file.txt","output.stats.txt"). 
 
 
-fit.QAM <- function(the.data,output.1="output05.txt",stats.1="stats05.txt",g=PM05,g.inv=invPM05) {
+fit.QAM <- function(the.data,output.1="outputPM2.txt",stats.1="statsPM2.txt",g=PM2,g.inv=invPM2) {
   # preliminary information
   ycol <- ncol(the.data)
   n <- ycol-1
